@@ -1,0 +1,36 @@
+extends layout
+
+block content
+ .container
+  .row.main
+    .panel-heading
+      .panel-title.text-center
+        h1.title Contact 
+        hr
+    .main-login.main-center
+      form.form-horizontal(method='POST', action='contact/send')
+        
+        .form-group
+          label.cols-sm-2.control-label(for='username') Name
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-users.fa(aria-hidden='true')
+              input#username.form-control(type='text', name='name', placeholder='Enter your name')
+        .form-group
+          label.cols-sm-2.control-label(for='email') Email
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-lock.fa-lg(aria-hidden='true')
+              input#password.form-control(type='email', name='email', placeholder='Enter your email')
+        .form-group
+          label.cols-sm-2.control-label(for='email') Message
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-lock.fa-lg(aria-hidden='true')
+              input#password.form-control(type='textarea', name='message', placeholder='Enter about youself')
+        .form-group
+          button.btn.btn-primary.btn-lg.btn-block.login-button(type='submit') Submit
+        

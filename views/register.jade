@@ -1,0 +1,54 @@
+extends layout
+
+block content
+  .container
+  .row.main
+    .panel-heading
+      .panel-title.text-center
+        h1.title Register
+        hr
+    .main-login.main-center
+     ul.errors
+      if errors
+        each error, i in errors
+          li.alert.alert-danger #{error.msg}
+      form.form-horizontal(method='POST', action='/users/register')
+        .form-group
+          label.cols-sm-2.control-label(for='name') Your Name
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-user.fa(aria-hidden='true')
+              input#name.form-control(type='text', name='name', placeholder='Enter your Name' ,required)
+        .form-group
+          label.cols-sm-2.control-label(for='email') Your Email
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-envelope.fa(aria-hidden='true')
+              input#email.form-control(type='text', name='email', placeholder='Enter your Email' ,required)
+        .form-group
+          label.cols-sm-2.control-label(for='username') Username
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-users.fa(aria-hidden='true')
+              input#username.form-control(type='text', name='username', placeholder='Enter your Username' ,required)
+        .form-group
+          label.cols-sm-2.control-label(for='password') Password
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-lock.fa-lg(aria-hidden='true')
+              input#password.form-control(type='password', name='password', placeholder='Enter your Password' ,required)
+        .form-group
+          label.cols-sm-2.control-label(for='confirm') Confirm Password
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-lock.fa-lg(aria-hidden='true')
+              input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
+        .form-group
+          button.btn.btn-primary.btn-lg.btn-block.login-button(type='submit') Register
+        .login-register
+          a(href='/users/login') Login

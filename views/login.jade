@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  .container
+  .row.main
+    .panel-heading
+      .panel-title.text-center
+        h1.title Login
+        hr
+    .main-login.main-center
+      form.form-horizontal(method='POST', action='/users/register' , enctype='multipart/form-data')
+        
+        .form-group
+          label.cols-sm-2.control-label(for='username') Username
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-users.fa(aria-hidden='true')
+              input#username.form-control(type='text', name='username', placeholder='Enter your Username')
+        .form-group
+          label.cols-sm-2.control-label(for='password') Password
+          .cols-sm-10
+            .input-group
+              span.input-group-addon
+                i.fa.fa-lock.fa-lg(aria-hidden='true')
+              input#password.form-control(type='password', name='password', placeholder='Enter your Password')
+        
+        .form-group
+          button.btn.btn-primary.btn-lg.btn-block.login-button(type='submit') Login
