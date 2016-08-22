@@ -79,3 +79,15 @@ input::-webkit-input-placeholder {
 
 .form-horizontal .control-label {margin-bottom: 10px;}
 ul, ol {padding: 0;}
+
+.success {
+      padding: 10px;
+    background: green;
+    display: inline-block;
+    list-style: none;
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    position: absolute;
+    right: 0;
+}

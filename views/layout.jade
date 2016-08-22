@@ -24,19 +24,26 @@ html
           ul.nav.navbar-nav
             li.active
               a(href='/') Home
-            li
-              a(href='#about') About
+            if user
+                li
+                  a(href='/member') Member
             li
               a(href='/contact') Contact
             
           ul.nav.navbar-nav.navbar-right
-            li
-              a(href='/users/register') Register
-            li
-              a(href='/users/login') Login
+           if !user
+               li 
+                  a(href='/users/register') Register 
+                li 
+                  a(href='/users/login') Login   
+            if user
+                li
+                  a(href='/users/logout') Logout      
+               
             
         // /.nav-collapse
-    
+    != messages()
     block content
+
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')

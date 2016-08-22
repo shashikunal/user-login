@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var passport = require('passport');
-var localStrategy = require('passport-local').strategy;
+var LocalStrategy = require('passport-local').Strategy;
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var flash = require('connect-flash');
@@ -74,6 +74,11 @@ app.use(flash());
 app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
   next();
+});
+
+app.get('*' , function(req , res,next){
+    res.locals.user = req.user || null;
+    next();
 });
 
 app.use('/', routes);
